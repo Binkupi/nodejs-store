@@ -1,0 +1,68 @@
+<div class="mt-4 mb-4">
+    <h3> Sửa sản phẩm Nam</h3>
+    <form method="POST" action="/productsMen/{{ProductMen._id}}?_method=PUT">
+
+        <div class="form-group">
+            <label for="name" class="form-label">Tên sản phẩm</label>
+            <input type="text" class="form-control" id="name" placeholder="name" name="name" value="{{ProductMen.name}}"> 
+        </div>
+
+        <div class="form-group" >
+            <label for="catagory" class="form-label">Loại</label>
+            <input type="text" class="form-control" id="catagory" placeholder="catagory" name="catagory" value="{{ProductMen.catagory}}"> </input>
+        </div>
+
+        <div class="form-group">
+            <label for="sale" class="form-label">Tình trạng sản phẩm đang sale:</label>
+            <select  id="sale" name="sale">
+                <option  value="true" id="true" >Có</option>
+                <option  value="false" id="false">Không</option>
+            </select>
+        </div>
+        
+
+        <div class="form-group" >
+            <label for="detail" class="form-label">Chi tiết sản phẩm</label>
+            <textarea type="text" class="form-control" id="detail" placeholder="detail" name="detail" value="{{ProductMen.detail}}"> </textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="pricereal" class="form-label">Giá sản phẩm</label>
+            <input type="number" class="form-control" id="pricereal" placeholder="pricereal" name="pricereal" value="{{ProductMen.pricereal}}"> 
+        </div>
+
+        <div class="form-group">
+            <label for="pricesale" class="form-label">Giá sale</label>
+            <input type="number" class="form-control" id="pricesale" placeholder="pricesale" name="pricesale" value="{{ProductMen.pricesale}}" > 
+        </div>
+
+        <button type="submit" class="btn btn-primary">Cập nhật sản phẩm</button>
+    </form>
+    
+</div>
+<script>
+    //when diolog confirm clicks
+    document.addEventListener("DOMContentLoaded",function(){
+        var priceSale=$("#pricesale");
+        var valueSelected=$("#sale option[value='{{ProductMen.sale}}']");
+        valueSelected.attr("selected","selected");
+        if($("#sale").val()=="true"){
+            priceSale.attr("disabled",false);
+        }
+        else{
+            priceSale.attr("disabled",true);
+        }
+        $("#sale").change(function(){
+            if($("#sale").val()=="true"){
+           priceSale.attr("disabled",false);    
+        }
+        else{
+            priceSale.attr("disabled",true);
+        }
+        })
+       
+    })
+   
+    
+    
+</script>

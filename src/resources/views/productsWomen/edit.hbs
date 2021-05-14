@@ -1,0 +1,80 @@
+<div class="mt-4 mb-4">
+    <h3> Sửa sản phẩm Nữ</h3>
+    <form method="POST" action="/productsWomen/{{ProductWomen._id}}?_method=PUT">
+
+        <div class="form-group">
+            <label for="name" class="form-label">Tên sản phẩm</label>
+            <input type="text" class="form-control" id="name" placeholder="name" name="name" value="{{ProductWomen.name}}"> 
+        </div>
+
+        <div class="form-group" >
+            <label for="catagory" class="form-label">Loại</label>
+            <input type="text" class="form-control" id="catagory" placeholder="catagory" name="catagory" value="{{ProductWomen.catagory}}"> </input>
+        </div>
+
+        <div class="form-group">
+            <label for="sale" class="form-label">Tình trạng sản phẩm đang sale:</label>
+            <select  id="sale" name="sale">
+                <option  value="true" id="true" >Có</option>
+                <option  value="false" id="false">Không</option>
+            </select>
+        </div>
+        
+
+        <div class="form-group" >
+            <label for="detail" class="form-label">Chi tiết sản phẩm</label>
+            <textarea type="text" class="form-control" id="detail" placeholder="detail" name="detail" value="{{ProductWomen.detail}}"> </textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="pricereal" class="form-label">Giá sản phẩm</label>
+            <input type="number" class="form-control" id="pricereal" placeholder="pricereal" name="pricereal" value="{{ProductWomen.pricereal}}"> 
+        </div>
+
+        <div class="form-group">
+            <label for="pricesale" class="form-label">Giá sale</label>
+            <input type="number" class="form-control" id="pricesale" placeholder="pricesale" name="pricesale" value="{{ProductWomen.pricesale}}" > 
+        </div>
+
+        <button type="submit" class="btn btn-primary">Cập nhật sản phẩm</button>
+    </form>
+    
+</div>
+<script>
+    //when diolog confirm clicks
+    document.addEventListener("DOMContentLoaded",function(){
+
+        // Xử lý sản phẩm có sale hay không
+        var priceSale=$('#pricesale');
+         var valueSelected=$('#sale option[value="{{ProductWomen.sale}}"]');
+        valueSelected.attr('selected','selected');
+        if($('#sale').val()=="true")
+            {
+                priceSale.attr('disabled',false);
+
+            }
+            else
+            {
+                priceSale.attr('disabled',true);
+            }
+           
+        var sale=document.getElementById('sale');
+        
+        $('#sale').on('change', function() {
+            if(this.value=="true")
+            {
+                priceSale.attr('disabled',false);
+                console.log();
+            }
+            else
+            {
+                priceSale.attr('disabled',true);
+            }
+           
+
+    })
+    })
+   
+    
+    
+</script>

@@ -1,0 +1,66 @@
+<div class="mt-4 mb-4">
+    <h3> Thêm sản phẩm nam mới</h3>
+    <form method="POST" action="/productsMen/store" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label for="name" class="form-label">Tên sản phẩm</label>
+            <input type="text" class="form-control" id="name" placeholder="name" name="name"> 
+        </div>
+
+        <div class="form-group" >
+            <label for="catagory" class="form-label">Loại</label>
+            <input type="text" class="form-control" id="catagory" placeholder="catagory" name="catagory"> </input>
+        </div>
+
+        <div class="form-group">
+            <label for="sale" class="form-label">Tình trạng sản phẩm đang sale:</label>
+            <select  id="sale" name="sale">
+                <option  value="true">Có</option>
+                <option selected="selected" value="false" >Không</option>
+            </select>
+        </div>
+        
+
+        <div class="form-group" >
+            <label for="detail" class="form-label">Chi tiết sản phẩm</label>
+            <textarea type="text" class="form-control" id="detail" placeholder="detail" name="detail"> </textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="pricereal" class="form-label">Giá sản phẩm</label>
+            <input type="number" class="form-control" id="pricereal" placeholder="pricereal" name="pricereal"> 
+        </div>
+
+        <div class="form-group">
+            <label for="pricesale" class="form-label">Giá sale</label>
+            <input type="number" class="form-control" id="pricesale" placeholder="pricesale" name="pricesale" disabled="disabled" > 
+        </div>
+
+        <div class="form-group">
+            <label for="image">Chọn ảnh</label>
+            <input type="file" class="form-control-file" id="image" name="image">
+        </div>
+        <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+    </form>
+    
+</div>
+<script>
+    //when diolog confirm clicks
+    document.addEventListener("DOMContentLoaded",function(){
+    var isCheckSale=document.getElementById('sale');
+    var priceSale=$('#pricesale');
+    $(isCheckSale).change(function(){
+    if(isCheckSale.value=='true'){
+        priceSale.attr('disabled',false);
+    }  
+    else{
+         priceSale.attr('disabled',true);
+    }
+    })
+   
+
+    })
+   
+    
+    
+</script>
